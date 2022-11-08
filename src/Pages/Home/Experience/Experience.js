@@ -5,25 +5,18 @@ import about2 from "../../../assets/images/about-2.jpg";
 
 const Experience = () => {
   return (
-    <div className="hero my-20">
+    <div className="hero my-20 h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <div className="w-1/2">
-          <p className="text-2xl font-bold text-orange-600">About Us</p>
-          <h1 className="my-5 text-5xl font-bold">
-            We are qualified <br />
-            & of experience <br />
-            in this field
+          <p className="text-sm font-bold text-[#d5aa6d]">About Us</p>
+          <h1 className="my-5 text-4xl font-bold text-white">
+            We are here to fight against any violance with <samp className="italic text-[#d5aa6d]">experience</samp>
           </h1>
           <p className="py-6">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable.{" "}
+          The argument in favor of using filler text goes something like this: If you use real content in the design process, anytime you reach a review point you’ll end up reviewing and negotiating the content itself and not the design.
           </p>
           <p className="py-6">
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable.{" "}
+          Aenean tincidunt id mauris id auctor. Donec at ligula lacus. Nulla dignissim mi quis neque interdum, quis porta sem finibus.
           </p>
           <button className="btn btn-primary">Get More Info</button>
         </div>
@@ -37,15 +30,18 @@ const Experience = () => {
               className="w-full h-full rounded-lg shadow-2xl"
             />
           </div>
-          <div className="absolute  left-2 top-1/3 w-1/2  rounded-lg shadow-2xl">
+          <div className=" hidden md:block absolute  left-2 top-1/4 w-1/2  rounded-lg shadow-2xl">
             <img src={about2} alt="" />
             <div className="absolute left-3 right-5 top-3 bottom-3 bg-white bg-opacity-60  ">
               <div class="m-0 p-0">
-               <div className="absolute left-6 bottom-16">
-               <h2 className="text-black">
-                  <span className="text-9xl font-bold">35</span> <br /><span className="text-4xl font-semibold">years of experience</span>
-                </h2>
-               </div>
+                <div className="absolute left-6 bottom-16">
+                  <h2 className="text-black">
+                    <span className="text-9xl font-bold">35</span> <br />
+                    <span className="text-4xl font-semibold">
+                      years of experience
+                    </span>
+                  </h2>
+                </div>
               </div>
             </div>
           </div>
