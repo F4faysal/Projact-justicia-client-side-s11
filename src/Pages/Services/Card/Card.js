@@ -1,19 +1,40 @@
 import React from "react";
 
-const Card = ({service}) => {
-
-    const {title} = service
-
+const Card = ({ service }) => {
+  const { title, img, price } = service;
+  console.log(service);
   return (
     <div className="card w-96 bg-base-100 shadow-xl image-full">
       <figure>
-        <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+        <img src={img} alt="Shoes" />
       </figure>
       <div className="card-body">
+
         <h2 className="card-title">{title}</h2>
+
         <p>If a dog chews shoes whose shoes does he choose?</p>
+
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+
+          <button
+            type="button"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+             Details
+            <svg
+              aria-hidden="true"
+              className="ml-2 -mr-1 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>

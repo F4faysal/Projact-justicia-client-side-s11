@@ -6,7 +6,6 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  
 
   const handleLogOut = () => {
     logOut()
@@ -42,9 +41,14 @@ const Header = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <Link to={"services"}>services</Link>
+              <Link to={"services"}>Services</Link>
             </li>
-           
+            <li>
+              <Link to={"add-service"}>Add Service</Link>
+            </li>
+            <li>
+              <Link to={"my-reviews"}>My Reviews</Link>
+            </li>
             <li>
               <Link to={"blog"}>Blogs</Link>
             </li>
@@ -78,7 +82,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex gap-1">
         <ul className="menu menu-horizontal p-0">
           <li>
             <Link to={"/"}>Home</Link>
@@ -87,13 +91,19 @@ const Header = () => {
             <Link to={"services"}>services</Link>
           </li>
           <li>
+            <Link to={"add-service"}>Add Service</Link>
+          </li>
+          <li>
+            <Link to={"my-reviews"}>My Reviews</Link>
+          </li>
+          <li>
             <Link to={"blog"}>Blog</Link>
           </li>
           <>
             {user?.uid ? (
               <>
                 <button
-                  className="btn  btn-warning btn-outline"
+                  className="py-1 px-3 text-xs font-medium text-center text-white hover:bg-[#d5aa6d] rounded-lg hover:bg-opacity-20"
                   onClick={handleLogOut}
                 >
                   Log out
@@ -117,7 +127,7 @@ const Header = () => {
       <div className="navbar-end  ">
         <div className="flex items-center gap-2">
           {user?.uid ? (
-            <span className=" hidden md:flex justify-center  btn btn-outline btn-warning">
+            <span className=" hidden md:flex justify-center px-2  text-white py-1 bg-[#d5aa6d] bg-opacity-50 rounded-md">
               {user?.displayName || user?.email}
             </span>
           ) : (
