@@ -1,9 +1,10 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { Link } from "react-router-dom";
 
 const Card = ({ service }) => {
-  const { title, img, price, details, img_details, lowCod } = service;
+  const { title, img, price, details, img_details, lowCod , _id } = service;
   console.log(service);
   return (
     <div className="card w-auto bg-base-100 shadow-xl image-full">
@@ -24,7 +25,8 @@ const Card = ({ service }) => {
         </figure>
 
         <div className="card-actions justify-end">
-          <button
+          <Link 
+            to={`/services/${_id}`}
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
@@ -42,7 +44,7 @@ const Card = ({ service }) => {
                 clip-rule="evenodd"
               ></path>
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

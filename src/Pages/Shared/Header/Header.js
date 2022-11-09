@@ -6,7 +6,6 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -90,12 +89,16 @@ const Header = () => {
           <li>
             <Link to={"services"}>services</Link>
           </li>
-          <li>
+          <>
+          {
+            user?.uid ? <> <li>
             <Link to={"add-service"}>Add Service</Link>
           </li>
           <li>
             <Link to={"my-reviews"}>My Reviews</Link>
-          </li>
+          </li></> : <></>
+          }
+         </>
           <li>
             <Link to={"blog"}>Blog</Link>
           </li>
@@ -123,7 +126,7 @@ const Header = () => {
           </>
         </ul>
       </div>
-
+      {/* emaig section */}
       <div className="navbar-end  ">
         <div className="flex items-center gap-2">
           {user?.uid ? (
