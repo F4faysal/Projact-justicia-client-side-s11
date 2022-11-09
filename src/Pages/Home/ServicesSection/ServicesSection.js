@@ -3,12 +3,12 @@ import "./ServicesSection.css";
 
 const ServicesSection = () => {
   return (
-    <div className="relative mt-0  mb-5 bg-white h-[450px]">
-      <div className="icon-tw flex justify-center">
+    <div className="relative mt-0  mb-5 bg-white h-[100vh] md:h-[450px]">
+      <div className="icon-tw flex justify-center items-center">
         <div className="">
           <div>
             <p className="text-[#d5aa6d]">Fun Fact</p>
-            <h1 className="text-4xl font-medium text-black">
+            <h1 className="text-2xl md:text-4xl font-medium text-black">
               We feel very proud for our <br /> great{" "}
               <span className="italic text-[#d5aa6d]">achievement</span>
             </h1>
