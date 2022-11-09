@@ -3,7 +3,7 @@ import "./ServicesSection.css";
 
 const ServicesSection = () => {
   return (
-    <div className="relative p-5 bg-white h-[450px]">
+    <div className="relative mt-0  mb-5 bg-white h-[450px]">
       <div className="icon-tw flex justify-center">
         <div className="">
           <div>

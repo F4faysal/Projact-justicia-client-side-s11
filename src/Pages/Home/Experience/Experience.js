@@ -5,7 +5,7 @@ import about2 from "../../../assets/images/about-2.jpg";
 
 const Experience = () => {
   return (
-    <div className="hero my-20 h-screen">
+    <div className="hero mb-20 h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <div className="w-1/2">
           <p className="text-sm font-bold text-[#d5aa6d]">About Us</p>

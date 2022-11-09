@@ -5,6 +5,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import Services from "../../Pages/Services/Services";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -30,7 +31,12 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/courses/checkout/:id",
+        path: "/services",
+        element: <Services></Services>,
+         loader: ()=> fetch('http://localhost:5000/service')
+      },
+      {
+        path: "/services/details/:id",
         
         element: (
           <PrivateRoute>

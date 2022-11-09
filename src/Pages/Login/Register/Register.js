@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 
 import { FaArrowAltCircleRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import loginPhoto from "../../../assets/login.webp";
+import loginPhoto from "../../../assets/images/lAW.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 
