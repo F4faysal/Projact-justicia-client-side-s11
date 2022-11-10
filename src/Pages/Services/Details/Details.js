@@ -37,7 +37,7 @@ const Details = () => {
   const handelInputBlur = (event) => {
     const filde = event.target.name;
     const value = event.target.value;
-    const newReview = { ...review,  email: user.email , user  };
+    const newReview = { ...review,  email: user?.email , user  };
     newReview[filde] = value;
     setReview(newReview );
   };

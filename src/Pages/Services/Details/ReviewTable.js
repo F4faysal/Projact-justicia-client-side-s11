@@ -3,16 +3,16 @@ import React, { useState } from "react";
 
 const ReviewTable = ({ r }) => {
 
-  const { review, user , _id } = r;
+  const { review, user , _id , email } = r;
 
-  const [setDisplayUsers, displayUsers ] = useState(r)
+  const [setDisplayUsers, displayUsers ] = useState(review)
 
   console.log(r)
   const handelDelete = (id) => {
     const agrre = window.confirm(`Are you sewore to delete`);
     if (agrre) {
       console.log("deleting user with id: ", id);
-      fetch(`https://justicia-server.vercel.app/${id}`, {
+      fetch(`https://justicia-server.vercel.app/review/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -32,7 +32,7 @@ const ReviewTable = ({ r }) => {
   return (
     <tr>
       <th>
-        <button onClick={() => handelDelete(_id)} className="btn btn-xs">
+        <button onClick={() =>handelDelete(_id)} className="btn btn-xs">
           X
         </button>
       </th>
@@ -48,7 +48,7 @@ const ReviewTable = ({ r }) => {
           </div>
           <div>
             <div className="font-semibold text-sm"> Author Name</div>
-            <div className="text-sm opacity-50">{user.displayName}</div>
+            <div className="text-sm opacity-50">{user?.displayName}</div>
           </div>
         </div>
       </td>

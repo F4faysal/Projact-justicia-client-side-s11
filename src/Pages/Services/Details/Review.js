@@ -7,7 +7,7 @@ const Review = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`https://justicia-server.vercel.app/review?email=${user.email}`)
+    fetch(`https://justicia-server.vercel.app/review?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setTheGetReview(data);
