@@ -1,26 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
-import ReviewTable from "./ReviewTable";
+import Review from "./Review";
 
 const Details = () => {
   const service = useLoaderData();
   const { title, img, price, details, img_details, lowCod, _id } = service;
   const [review, setReview] = useState({}); //POST
   const { user } = useContext(AuthContext);
-  const [getReview, setTheGetReview] = useState([]); //get
- 
-
-  useEffect(() => {
-    fetch("http://localhost:5000/review")
-      .then((res) => res.json())
-      .then((data) => {
-        setTheGetReview(data);
-        console.log(getReview);
-      });
-  }, []);
 
   const handelReview = (event) => {
     event.preventDefault();
@@ -48,9 +37,9 @@ const Details = () => {
   const handelInputBlur = (event) => {
     const filde = event.target.name;
     const value = event.target.value;
-    const newUser = { ...review };
-    newUser[filde] = value;
-    setReview(newUser);
+    const newReview = { ...review };
+    newReview[filde] = value;
+    setReview({newReview,user});
   };
 
   return (
@@ -81,8 +70,9 @@ const Details = () => {
               </div>
             </div>
           </div>
+          
           <div>
-            {/* review */}
+            {/* review  send */}
             <form onSubmit={handelReview}>
               <label for="chat" className="sr-only">
                 Your review
@@ -151,33 +141,9 @@ const Details = () => {
                 </button>
               </div>
             </form>
-            {/* review */}
 
-            <div className="overflow-x-auto w-full">
-              <table className="table w-full">
-                {/* <!-- head --> */}
-                <thead>
-                  <tr>
-                    <th>
-                      <label>
-                        {/* <input type="checkbox" className="checkbox" /> */}
-                      </label>
-                    </th>
-                    <th>Services Review </th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* <!-- row 1 --> */}
-                  {getReview?.map((r) => (
-                    <ReviewTable key={r._id} r={r}></ReviewTable>
-                  ))}
-                  {/* <!-- row 1 end --> */}
-                </tbody>
-              </table>
-            </div>
+            {/* review display */}
+            <Review></Review>
 
             {/*  */}
           </div>
