@@ -15,7 +15,7 @@ const Details = () => {
     event.preventDefault();
     if (user) {
       console.log(review, user);
-      fetch("http://localhost:5000/review", {
+      fetch("https://justicia-server.vercel.app/review", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -37,9 +37,9 @@ const Details = () => {
   const handelInputBlur = (event) => {
     const filde = event.target.name;
     const value = event.target.value;
-    const newReview = { ...review };
+    const newReview = { ...review,  email: user.email , user  };
     newReview[filde] = value;
-    setReview({newReview,user});
+    setReview(newReview );
   };
 
   return (
@@ -70,7 +70,7 @@ const Details = () => {
               </div>
             </div>
           </div>
-          
+
           <div>
             {/* review  send */}
             <form onSubmit={handelReview}>
@@ -144,7 +144,6 @@ const Details = () => {
 
             {/* review display */}
             <Review></Review>
-
             {/*  */}
           </div>
         </div>

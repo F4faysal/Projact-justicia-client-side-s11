@@ -6,7 +6,7 @@ const Home3Service = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/service/3")
+    fetch("https://justicia-server.vercel.app/service/3")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

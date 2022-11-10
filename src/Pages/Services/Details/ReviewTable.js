@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 
-const ReviewTable = ({ r, setDisplayUsers, displayUsers }) => {
+const ReviewTable = ({ r }) => {
 
-  const { newReview, user } = r;
+  const { review, user , _id } = r;
 
-  
+  const [setDisplayUsers, displayUsers ] = useState(r)
 
   console.log(r)
   const handelDelete = (id) => {
     const agrre = window.confirm(`Are you sewore to delete`);
     if (agrre) {
       console.log("deleting user with id: ", id);
-      fetch(`http://localhost:5000/review/${id}`, {
+      fetch(`https://justicia-server.vercel.app/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data)
-          // if (data.deletedCount > 0) {
-          //   alert("User deleted successfully.");
-          //   const remainingUsers = displayUsers.filter(
-          //     (usr) => usr._id !== displayUsers._id
-          //   );
-          //   setDisplayUsers(remainingUsers);
-          // }
+          console.log(data)
+          if (data.deletedCount > 0) {
+            alert("User deleted successfully.");
+            const remainingUsers = displayUsers.filter(
+              (usr) => usr._id !== displayUsers._id
+            );
+            setDisplayUsers(remainingUsers);
+          }
         });
     }
   };
@@ -32,7 +32,7 @@ const ReviewTable = ({ r, setDisplayUsers, displayUsers }) => {
   return (
     <tr>
       <th>
-        <button onClick={() => handelDelete()} className="btn btn-xs">
+        <button onClick={() => handelDelete(_id)} className="btn btn-xs">
           X
         </button>
       </th>
@@ -53,7 +53,7 @@ const ReviewTable = ({ r, setDisplayUsers, displayUsers }) => {
         </div>
       </td>
       <td>
-       {newReview.review}
+       {review}
         <br />
         <span className="badge badge-ghost badge-sm">
           Desktop Support Technician
