@@ -6,30 +6,8 @@ const ReviewTable = ({ r , handelDelete }) => {
 
   const { review, user , _id , email } = r;
 
-
-  // const handelDelete = (id) => {
-  //   const agrre = window.confirm(`Are you sewore to delete`);
-  //   if (agrre) {
-  //     console.log("deleting user with id: ", id);
-  //     fetch(`https://justicia-server.vercel.app/review/${id}`, {
-  //       method: "DELETE",
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data)
-  //         if (data.deletedCount > 0) {
-  //           alert("User deleted successfully.");
-  //           const remainingUsers = displayUsers.filter(
-  //             (usr) => usr._id !== displayUsers._id
-  //           );
-  //           setDisplayUsers(remainingUsers);
-  //         }
-  //       });
-  //   }
-  // };
-
   return (
-    <tr>
+    <tr className="flex md:block flex-col md:flex-row ">
       <th>
         <button onClick={() =>handelDelete(_id)} className="btn btn-xs">
           X

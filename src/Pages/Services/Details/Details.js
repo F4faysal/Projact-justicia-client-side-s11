@@ -53,7 +53,7 @@ const Details = () => {
         </h1>
       </div>
       <div className=" container mx-auto flex flex-col items-start justify-center">
-        <div className="my-5 grid grid-cols-2 gap-9">
+        <div className="my-5 grid grid-cols-1 lg:grid-cols-2 gap-9">
           <div className="">
             <img className="w-full" src={img} alt="Album" />
             <div>

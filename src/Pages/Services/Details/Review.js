@@ -44,7 +44,7 @@ const Review = () => {
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
         {/* <!-- head --> */}
-        <thead>
+        <thead className="flex flex-col md:flex-row md:block ">
           <tr>
             <th>
               <label>
