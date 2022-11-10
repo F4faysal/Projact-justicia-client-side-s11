@@ -1,12 +1,61 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import ReviewTable from "./ReviewTable";
 
 const Details = () => {
   const service = useLoaderData();
   const { title, img, price, details, img_details, lowCod, _id } = service;
+  const [review, setReview] = useState({}); //POST
+  const { user } = useContext(AuthContext);
+  const [getReview, setTheGetReview] = useState([]); //get
+ 
+
+  useEffect(() => {
+    fetch("http://localhost:5000/review")
+      .then((res) => res.json())
+      .then((data) => {
+        setTheGetReview(data);
+        console.log(getReview);
+      });
+  }, []);
+
+  const handelReview = (event) => {
+    event.preventDefault();
+    if (user) {
+      console.log(review, user);
+      fetch("http://localhost:5000/review", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            toast("Thanks for your opinion");
+            event.target.reset();
+          }
+        });
+    } else {
+      toast("Please login ..");
+    }
+  };
+
+  const handelInputBlur = (event) => {
+    const filde = event.target.name;
+    const value = event.target.value;
+    const newUser = { ...review };
+    newUser[filde] = value;
+    setReview(newUser);
+  };
 
   return (
     <div className="h-[100]  ">
+      <ToastContainer />
       <div className="bacg-img flex justify-center items-center bg-cover bg-center">
         <h1 className="text-5xl text-white">
           {title} <span className="text-[#9e7247]">{lowCod}</span>
@@ -21,7 +70,11 @@ const Details = () => {
                 <h2 className="text-5xl my-2 text-white">{title}</h2>
                 <h2 className="text-5xl my-1 text-[#9e7247]">{lowCod}</h2>
                 <div className="">
-                  <img className="float-right w-[60%] h-[30%]" src={img_details} alt="" />
+                  <img
+                    className="float-right w-[60%] h-[30%]"
+                    src={img_details}
+                    alt=""
+                  />
                   <p className="text-[20px]">{details}</p>
                 </div>
                 <p className=" text-5xl font-bold text-[#9e7247]">${price}</p>
@@ -30,9 +83,9 @@ const Details = () => {
           </div>
           <div>
             {/* review */}
-            <form>
+            <form onSubmit={handelReview}>
               <label for="chat" className="sr-only">
-                Your message
+                Your review
               </label>
               <div className="flex items-center py-2 px-3 bg-gray-50 rounded-lg dark:bg-gray-700">
                 <button
@@ -74,13 +127,15 @@ const Details = () => {
                   <span className="sr-only">Add emoji</span>
                 </button>
                 <textarea
+                  onBlur={handelInputBlur}
+                  name="review"
                   id="chat"
                   rows="1"
                   className="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Your message..."
+                  placeholder="Your Review..."
                 ></textarea>
                 <button
-                  type="submit"
+                  type="Submit"
                   className="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
                 >
                   <svg
@@ -96,6 +151,35 @@ const Details = () => {
                 </button>
               </div>
             </form>
+            {/* review */}
+
+            <div className="overflow-x-auto w-full">
+              <table className="table w-full">
+                {/* <!-- head --> */}
+                <thead>
+                  <tr>
+                    <th>
+                      <label>
+                        {/* <input type="checkbox" className="checkbox" /> */}
+                      </label>
+                    </th>
+                    <th>Services Review </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* <!-- row 1 --> */}
+                  {getReview?.map((r) => (
+                    <ReviewTable key={r._id} r={r}></ReviewTable>
+                  ))}
+                  {/* <!-- row 1 end --> */}
+                </tbody>
+              </table>
+            </div>
+
+            {/*  */}
           </div>
         </div>
       </div>
@@ -104,6 +188,3 @@ const Details = () => {
 };
 
 export default Details;
-
-
-
