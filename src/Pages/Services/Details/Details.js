@@ -14,7 +14,8 @@ const Details = () => {
   const handelReview = (event) => {
     event.preventDefault();
     if (user) {
-      console.log(review, user);
+      // console.log(review, user);
+
       fetch("https://justicia-server.vercel.app/review", {
         method: "POST",
         headers: {
@@ -32,6 +33,7 @@ const Details = () => {
     } else {
       toast("Please login ..");
     }
+    
   };
 
   const handelInputBlur = (event) => {

@@ -11,7 +11,7 @@ const Home3Service = () => {
       .then((data) => setServices(data));
   }, []);
 
-  console.log("faysa;", services);
+  // console.log("faysa;", services);
 
   return (
     <div className="h-full md:h-[100vh] flex justify-evenly items-center flex-col bg-white bg-opacity-10 rounded">

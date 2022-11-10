@@ -1,33 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 
-const ReviewTable = ({ r }) => {
+const ReviewTable = ({ r , handelDelete }) => {
 
   const { review, user , _id , email } = r;
 
-  const [setDisplayUsers, displayUsers ] = useState(review)
 
-  console.log(r)
-  const handelDelete = (id) => {
-    const agrre = window.confirm(`Are you sewore to delete`);
-    if (agrre) {
-      console.log("deleting user with id: ", id);
-      fetch(`https://justicia-server.vercel.app/review/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data)
-          if (data.deletedCount > 0) {
-            alert("User deleted successfully.");
-            const remainingUsers = displayUsers.filter(
-              (usr) => usr._id !== displayUsers._id
-            );
-            setDisplayUsers(remainingUsers);
-          }
-        });
-    }
-  };
+  // const handelDelete = (id) => {
+  //   const agrre = window.confirm(`Are you sewore to delete`);
+  //   if (agrre) {
+  //     console.log("deleting user with id: ", id);
+  //     fetch(`https://justicia-server.vercel.app/review/${id}`, {
+  //       method: "DELETE",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data)
+  //         if (data.deletedCount > 0) {
+  //           alert("User deleted successfully.");
+  //           const remainingUsers = displayUsers.filter(
+  //             (usr) => usr._id !== displayUsers._id
+  //           );
+  //           setDisplayUsers(remainingUsers);
+  //         }
+  //       });
+  //   }
+  // };
 
   return (
     <tr>
@@ -61,7 +60,7 @@ const ReviewTable = ({ r }) => {
       </td>
       
       <th>
-        <button className="btn btn-ghost btn-xs">Edit</button>
+        <Link to={`/edit-review/${_id}`} className="btn btn-ghost btn-xs">Edit</Link>
       </th>
     </tr>
   );

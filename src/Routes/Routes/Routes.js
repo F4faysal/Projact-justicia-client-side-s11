@@ -8,6 +8,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import Details from "../../Pages/Services/Details/Details";
+import EditReview from "../../Pages/Services/Details/EditReview/EditReview";
 import Services from "../../Pages/Services/Services";
 
 export const routes = createBrowserRouter([
@@ -44,10 +45,12 @@ export const routes = createBrowserRouter([
         element: <Services></Services>,
          loader: ()=> fetch('https://justicia-server.vercel.app/service')
       },
-      // {
-      //   path: "/services/details",
-      //   element: <Details></Details>,
-      // },
+      {
+        path: "/edit-review/:id",
+        element: <EditReview></EditReview>,
+        loader : ({params}) => fetch(`https://justicia-server.vercel.app/review/${params.id}`) ,
+
+      },
       {
         path: "/services/:id",
         element:<Details></Details>,
