@@ -21,7 +21,7 @@ const Details = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(review),
+        body: JSON.stringify(review  ),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -31,7 +31,8 @@ const Details = () => {
           }
         });
     } else {
-      toast("Please login ..");
+      toast(" Please login to add a review..");
+      event.target.reset();
     }
     
   };
@@ -39,10 +40,12 @@ const Details = () => {
   const handelInputBlur = (event) => {
     const filde = event.target.name;
     const value = event.target.value;
-    const newReview = { ...review,  email: user?.email , user  };
+    const newReview = { ...review,  email: user?.email , user , parreviewid:_id  };
     newReview[filde] = value;
     setReview(newReview );
   };
+
+ 
 
   return (
     <div className="h-[100]  ">
@@ -55,7 +58,7 @@ const Details = () => {
       <div className=" container mx-auto flex flex-col items-start justify-center">
         <div className="my-5 grid grid-cols-1 lg:grid-cols-2 gap-9">
           <div className="">
-            <img className="w-full" src={img?img:'https://www.gotocourt.com.au/wp-content/uploads/2022/07/criminal_law_qld-min.jpg'} alt="Album" />
+            <img className="w-full" src={img?img:'https://thewire.in/wp-content/uploads/2017/07/bangladesh-supreme-court-1.jpg'} alt="Album" />
             <div>
               <div className="card-body">
                 <h2 className="text-5xl my-2 text-white">{title?title:''}</h2>
@@ -63,7 +66,7 @@ const Details = () => {
                 <div className="">
                   <img
                     className="float-right w-[60%] h-[30%]"
-                    src={img_details?img_details:'https://www.gotocourt.com.au/wp-content/uploads/2022/07/criminal_law_qld-min.jpg'}
+                    src={img_details?img_details:'https://thewire.in/wp-content/uploads/2017/07/bangladesh-supreme-court-1.jpg'}
                     alt=""
                   />
                   <p className="text-[20px]">{details?details:''}</p>
@@ -146,7 +149,7 @@ const Details = () => {
             </form>
 
             {/* review display */}
-            <Review></Review>
+            <Review>{_id}</Review>
             {/*  */}
           </div>
         </div>

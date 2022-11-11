@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import ReviewTable from "./ReviewTable";
 
-const Review = () => {
+const Review = ({children}) => {
   const [getReview, setTheGetReview] = useState([]); //get
   const { user } = useContext(AuthContext);
+// console.log('children',children)
 
 
   useEffect(() => {
@@ -15,6 +16,15 @@ const Review = () => {
         // console.log(getReview);
       });
   },[getReview]);
+
+  console.log(getReview , children)
+
+  const parServiceReview = getReview.filter( review => review?.parreviewid === children)
+  // setTheGetReview(parServiceReview)
+  console.log( 'ami',parServiceReview)
+
+
+  // console.log('parServiceReview',parServiceReview)
 
   const [setDisplayUsers, displayUsers ] = useState()
   
@@ -59,8 +69,8 @@ const Review = () => {
         </thead>
         <tbody>
           {/* <!-- row 1 --> */}
-          {getReview?.map((r) => (
-            <ReviewTable key={r._id} r={r} handelDelete={handelDelete}></ReviewTable>
+          {parServiceReview?.map((r) => (
+            <ReviewTable key={r._id} r={r} children={children} handelDelete={handelDelete}></ReviewTable>
           ))}
           {/* <!-- row 1 end --> */}
         </tbody>

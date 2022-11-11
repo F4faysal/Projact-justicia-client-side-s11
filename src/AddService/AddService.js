@@ -18,7 +18,7 @@ const AddService = () => {
     const service = {
         title: title,
         lowCod: lawCod,
-        imgurl: imgurl,
+        img: imgurl,
         img_details: imgDetailsUrl,
         price: price,
         details:servicedetails
@@ -27,7 +27,7 @@ const AddService = () => {
     console.log(service  )
 
     if(user){
-        fetch("http://localhost:5000/service", {
+        fetch("https://justicia-server.vercel.app/service", {
             method: "POST",
             headers: {
               "content-type": "application/json",

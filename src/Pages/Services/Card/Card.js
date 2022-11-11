@@ -4,12 +4,13 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 const Card = ({ service }) => {
-  const { title, img, price, details, img_details, lowCod , _id } = service;
-  
+  const { title, img, details, _id , price} = service;
+
+ 
   return (
-    <div className="card w-auto bg-base-100 shadow-xl image-full">
-      <figure>
-        <img src={img?img:'https://www.gotocourt.com.au/wp-content/uploads/2022/07/criminal_law_qld-min.jpg'} alt="Shoes" />
+    <div className="card w-auto bg-base-100 shadow-xl image-full ">
+      <figure >
+        <img src={img?img:'https://www.unionlawfirm.com/wp-content/uploads/2020/12/stop_img.jpg'} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className=" text-3xl card-title text-white">{title}</h2>
@@ -19,12 +20,13 @@ const Card = ({ service }) => {
         <figure className="w-full">
           <PhotoProvider>
             <PhotoView src={img}>
-              <img className="rounded-lg" src={img?img:'https://www.gotocourt.com.au/wp-content/uploads/2022/07/criminal_law_qld-min.jpg'} alt="Shoes" />
+              <img className="rounded-lg" src={img?img:'https://www.unionlawfirm.com/wp-content/uploads/2020/12/stop_img.jpg'} alt="Shoes" />
             </PhotoView>
           </PhotoProvider>
         </figure>
 
         <div className="card-actions justify-end">
+          <p className="text-3xl text-white">$ {price}</p>
           <Link 
             to={`/services/${_id}`}
             type="button"

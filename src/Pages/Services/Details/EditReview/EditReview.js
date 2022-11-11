@@ -11,7 +11,7 @@ const EditReview = () => {
   const handleUpdateUser = (event) => {
     event.preventDefault();
     // console.log(user);
-    fetch(`http://localhost:5000/review/${data._id}`, {
+    fetch(`https://justicia-server.vercel.app/review/${data._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

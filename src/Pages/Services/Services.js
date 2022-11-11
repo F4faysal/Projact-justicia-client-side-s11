@@ -12,7 +12,7 @@ const Services = () => {
         <h1 className="text-5xl text-white">Services</h1>
       </div>
       <div className=" flex flex-col items-center justify-center">
-        <div className="w-11/12 grid p-3 m-5 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
+        <div className="w-11/12 grid p-3 m-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
           {data.map((service) => (
             <Card key={service._id} service={service}></Card>
           ))}
