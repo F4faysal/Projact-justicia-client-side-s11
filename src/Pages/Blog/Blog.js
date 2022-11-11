@@ -4,7 +4,7 @@ const Blog = () => {
     <div className="H-100vh">
       <div className="bacg-img flex justify-center items-center bg-cover bg-center">
         <h1 className="text-5xl text-white">
-          <span className="text-[#9e7247]">Blog</span>
+          <span className="">Blog</span>
         </h1>
       </div>
       <div className="p-5 w-full flex justify-center">

@@ -16,7 +16,7 @@ const ReviewTable = ({ r , handelDelete }) => {
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
-            <div className="mask mask-squircle w-12 h-12">
+            <div className="mask mask-squircle w-8 h-8">
               <img
                 src={user.photoURL}
                 alt="Avatar Tailwind CSS Component"
@@ -24,18 +24,16 @@ const ReviewTable = ({ r , handelDelete }) => {
             </div>
           </div>
           <div>
-            <div className="font-semibold text-sm"> Author Name</div>
-            <div className="text-sm opacity-50">{user?.displayName}</div>
+            <div className=" opacity-50 text-[9px]"> Author Name</div>
+            <div className="text-sm font-semibold">{user?.displayName}</div>
           </div>
         </div>
       </td>
-      <td>
-       {review}
-        <br />
-        <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span>
-      </td>
+      <p className="text-white w-10/12 ml-8 overflow-auto">
+     
+      {review}
+     
+      </p>
       
       <th>
         <Link to={`/edit-review/${_id}`} className="btn btn-ghost btn-xs">Edit</Link>

@@ -1,6 +1,6 @@
-### justicia
+# `justicia`
 
-# The website is what services a larkey provides and all the price information of its services etc. It is fully javascript and react.
+### The website is what services a larkey provides and all the price information of its services etc. It is fully javascript and react.
 
 Open [https://justicia-ad2e3.web.app/](https://justicia-ad2e3.web.app/) to view it in your browser.
 

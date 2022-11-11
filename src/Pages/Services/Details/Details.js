@@ -55,18 +55,18 @@ const Details = () => {
       <div className=" container mx-auto flex flex-col items-start justify-center">
         <div className="my-5 grid grid-cols-1 lg:grid-cols-2 gap-9">
           <div className="">
-            <img className="w-full" src={img} alt="Album" />
+            <img className="w-full" src={img?img:'https://www.gotocourt.com.au/wp-content/uploads/2022/07/criminal_law_qld-min.jpg'} alt="Album" />
             <div>
               <div className="card-body">
-                <h2 className="text-5xl my-2 text-white">{title}</h2>
-                <h2 className="text-5xl my-1 text-[#9e7247]">{lowCod}</h2>
+                <h2 className="text-5xl my-2 text-white">{title?title:''}</h2>
+                <h2 className="text-5xl my-1 text-[#9e7247]">{lowCod?lowCod:''}</h2>
                 <div className="">
                   <img
                     className="float-right w-[60%] h-[30%]"
-                    src={img_details}
+                    src={img_details?img_details:'https://www.gotocourt.com.au/wp-content/uploads/2022/07/criminal_law_qld-min.jpg'}
                     alt=""
                   />
-                  <p className="text-[20px]">{details}</p>
+                  <p className="text-[20px]">{details?details:''}</p>
                 </div>
                 <p className=" text-5xl font-bold text-[#9e7247]">${price}</p>
               </div>
@@ -74,6 +74,7 @@ const Details = () => {
           </div>
 
           <div>
+
             {/* review  send */}
             <form onSubmit={handelReview}>
               <label for="chat" className="sr-only">
