@@ -1,17 +1,15 @@
-# Getting Started with Create React App
+### justicia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The website is what services a larkey provides and all the price information of its services etc. It is fully javascript and react.
 
-## Available Scripts
+Open [https://justicia-ad2e3.web.app/](https://justicia-ad2e3.web.app/) to view it in your browser.
 
-In the project directory, you can run:
+This project was justicia client-side ripo [client-side](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-F4faysal).
 
-### `npm start`
+## https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-F4faysal
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project was justicia server-side ripo [server-side](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-F4faysal).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-F4faysal
 
-### `Faysal`
+### `F4faysal`
